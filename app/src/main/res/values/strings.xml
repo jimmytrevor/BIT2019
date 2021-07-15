@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ResourcesApp</string>
+    <string name="welcome_msg">Welcome to Resource Externalization</string>
+    <string name="get_started">Get Started</string>
+    <string name="login_txt">Sign In</string>
+    <string name="register_txt">Register</string>
+    <string name="swahili">Swahili</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="greet">How are you</string>
+
+</resources>

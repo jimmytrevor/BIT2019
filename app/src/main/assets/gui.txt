@@ -1,0 +1,89 @@
+package fci;
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+import java.awt.*;
+public class Fci extends Frame{
+    private Label l1,l2,l3,l4,l5,l6;
+    private TextField fname,lname;
+    private Checkbox male,female;
+    private CheckboxGroup gender;
+    private Choice program;
+    private Checkbox html,php;
+    private TextArea others;
+    private Button submit,reset,exit;
+   
+    public Fci(){
+        l1 = new Label("First Name:");
+        l2 = new Label("Last Name:");
+        l3 = new Label("Gender:");
+        l4 = new Label("Program:");
+        l5 = new Label("Languages:");
+        l6 = new Label("Others:");
+        
+        fname = new TextField();
+        lname = new TextField();
+        
+        gender = new CheckboxGroup();
+        male=new Checkbox("Male",false,gender);
+        female=new Checkbox("Female",false,gender);
+        
+        program = new Choice();
+        String array[]={"BIT","BCE","BCS","BSE"};
+        for(String s:array){
+          program.add(s);  
+        }
+        
+        php=new Checkbox("PHP",false);
+        html=new Checkbox("HTML",false);
+        
+        others = new TextArea();
+        
+        submit = new Button("Submit");
+        reset = new Button("Reset");
+        exit = new Button("Exit");
+        
+        l1.setBounds(40, 100, 100, 20);
+        fname.setBounds(150, 100, 200, 20);
+        
+        add(l1);
+        add(fname);
+
+        
+        
+        
+
+        
+        
+    }
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Fci f=new Fci();
+        f.setSize(400, 500);
+        f.setLocationRelativeTo(null);
+        f.setTitle("Student Registration Form");
+        f.setResizable(false);
+        f.setLayout(null);
+        f.setVisible(true);
+//        f.setBackground(Color.GRAY);
+        f.addWindowListener(new WindowAdapter(){
+            @Override
+        public void windowClosing(WindowEvent  e){
+            
+            if(JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to exit?"
+                    ,"Confirmation",
+                    JOptionPane.YES_NO_OPTION) 
+                    == JOptionPane.YES_NO_OPTION){
+                f.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Exit Cancelled","Exit Message",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        });
+    }
+    
+}

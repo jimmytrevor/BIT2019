@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/txt"
+        android:text="@string/welcome_msg"
+        android:textColor="@color/pink"
+        android:textSize="@dimen/text_size"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_below="@id/txt"
+        android:onClick="open_laguagae_dialog"
+        android:text="@string/get_started"
+        android:layout_height="wrap_content"/>
+
+    <VideoView
+        android:layout_below="@id/btn_start"
+        android:id="@+id/viedo_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/viedo_view"
+        android:layout_width="match_parent"
+        android:id="@+id/reader"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

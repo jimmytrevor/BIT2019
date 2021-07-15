@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ResourcesApp</string>
+    <string name="welcome_msg">Karibu Hu</string>
+    <string name="get_started">Anja</string>
+    <string name="login_txt">Kutandika</string>
+    <string name="register_txt">Andika</string>
+    <string name="swahili">Swahili</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="greet">Habaria</string>
+</resources>
