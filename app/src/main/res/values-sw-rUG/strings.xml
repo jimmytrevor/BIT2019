@@ -9,4 +9,8 @@
     <string name="english">English</string>
     <string name="french">French</string>
     <string name="greet">Habaria</string>
+    <string name="message_key">Welcome to Login Scree</string>
+    <string name="msg_variable">welcome_msg</string>
+    <string name="user_name">username</string>
+    <string name="passed_name">Jimmy Trevor</string>
 </resources>

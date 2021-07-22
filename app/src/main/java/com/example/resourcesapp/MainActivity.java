@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,6 +31,29 @@ private String value;
         super.onCreate(savedInstanceState);
         checkLanguage();
         setContentView(R.layout.activity_main);
+
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String message=getResources().getString(R.string.message_key);
+                Intent splashIntent = new Intent(MainActivity.this,LoginActivity.class);
+                splashIntent.putExtra(getResources().getString(R.string.msg_variable),message);
+                splashIntent.putExtra(getResources().getString(R.string.user_name),getResources().getString(R.string.passed_name));
+                startActivity(splashIntent);
+                finish();
+            }
+        },2000);
+
+
+
+
+
+
+
+
+
+
         String welcome_txt=getResources().getString(R.string.welcome_msg);
         viedo_view=findViewById(R.id.viedo_view);
         reader=findViewById(R.id.reader);

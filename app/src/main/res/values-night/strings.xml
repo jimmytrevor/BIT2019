@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_variable">welcome_msg</string>
+    <string name="user_name">username</string>
+    <string name="passed_name">Jimmy Trevor</string>
+</resources>
