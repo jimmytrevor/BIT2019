@@ -3,6 +3,7 @@
     package="com.example.resourcesapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ResourcesApp">
-        <activity android:name=".Activity.HomeActivity"></activity>
+        <activity android:name=".Activity.RegisterActivity"></activity>
+        <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -45,15 +45,6 @@ private String value;
             }
         },2000);
 
-
-
-
-
-
-
-
-
-
         String welcome_txt=getResources().getString(R.string.welcome_msg);
         viedo_view=findViewById(R.id.viedo_view);
         reader=findViewById(R.id.reader);

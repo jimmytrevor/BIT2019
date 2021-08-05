@@ -4,13 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="30dp"
+    android:padding="20dp"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Activity.RegisterActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/fullname"
+        android:hint="Enter User name"
+        android:padding="10dp"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:layout_width="match_parent"
         android:id="@+id/username"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/fullname"
         android:hint="Enter User name"
         android:padding="10dp"
         android:inputType="textPersonName"
@@ -26,18 +36,13 @@
         android:inputType="textPassword"
         android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/picked_image_view"
-        android:layout_height="200dp"/>
     <Button
         android:layout_width="match_parent"
-        android:text="Select Image"
-        android:id="@+id/btn_pick"
+        android:text="Register"
+        android:id="@+id/register_btn"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/picked_image_view"
+        android:layout_below="@id/password"
         android:layout_height="wrap_content"/>
+
 
 </RelativeLayout>

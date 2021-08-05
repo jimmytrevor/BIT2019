@@ -14,6 +14,8 @@ import com.example.resourcesapp.Fragments.HomeFragment;
 import com.example.resourcesapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static com.example.resourcesapp.Activity.RegisterActivity.shared_db;
+
 public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
@@ -56,5 +58,6 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_frame,fragment);
         transaction.commit();
+        transaction.addToBackStack("");
     }
 }
