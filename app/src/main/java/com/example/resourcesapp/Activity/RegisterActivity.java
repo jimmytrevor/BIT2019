@@ -20,13 +20,14 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button register;
+    private EditText age;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     public static final String shared_db="app_data";
     public static final String username_key="username";
     public static final String fullname_key="fullname";
     public static final String password_key="password";
-
+    public static final String age_key="age";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         fullname = findViewById(R.id.fullname);
         username = findViewById(R.id.username);
+        age=findViewById(R.id.age);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register_btn);
         sharedPreferences = getSharedPreferences(shared_db, Context.MODE_PRIVATE);
@@ -51,9 +53,11 @@ public class RegisterActivity extends AppCompatActivity {
                     String name=fullname.getText().toString().trim();
                     String usern=username.getText().toString().trim();
                     String pass=password.getText().toString().trim();
+                    int ag=Integer.parseInt(age.getText().toString().trim());
                     editor.putString(fullname_key,name);
                     editor.putString(username_key,usern);
                     editor.putString(password_key,pass);
+                    editor.putInt(age_key,ag);
                     editor.apply();
                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(loginIntent);

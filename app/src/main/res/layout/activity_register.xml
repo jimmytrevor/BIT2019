@@ -27,10 +27,20 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/age"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/username"
+        android:hint="Enter Age"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_height="wrap_content"/>
+
+    <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:id="@+id/password"
-        android:layout_below="@id/username"
+        android:layout_below="@id/age"
         android:hint="Enter Password"
         android:padding="10dp"
         android:inputType="textPassword"
