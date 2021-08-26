@@ -1,6 +1,7 @@
 package com.example.resourcesapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.resourcesapp.Activity.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,12 +23,18 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -136,6 +144,8 @@ public class LoginActivity extends AppCompatActivity {
 
         dialog.setMessage("Creating Signing.....");
         dialog.show();
+        dialog.setCancelable(false);
+        dialog.setTitle("PROGRESS");
          auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
              @Override
              public void onComplete(@NonNull Task<AuthResult> task) {
@@ -207,8 +217,90 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    public void showUsers(){
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot,  String previousChildName) {
+                String userName=snapshot.child("fullname").getValue(String.class);
+                String age=snapshot.child("age").getValue(String.class);
+                String imageUri=snapshot.child("image").getValue(String.class);
+                Picasso.with(LoginActivity.this).load(imageUri).into(imageView);
+                Glide.with(LoginActivity.this).load(imageUri).into(imageView);
 
+            }
 
+            @Override
+            public void onChildChanged(@NonNull  DataSnapshot snapshot, @Nullable String previousChildName) {
 
+            }
 
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull  DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+                Toast.makeText(LoginActivity.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public  void getAllUsers(){
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    Toast.makeText(LoginActivity.this, "Path Exists", Toast.LENGTH_SHORT).show();
+                    int usersFound=(int)snapshot.getChildrenCount();
+                    if (usersFound > 0){
+                        for (DataSnapshot userInfo: snapshot.getChildren()){
+                            String userName=userInfo.child("fullname").getValue(String.class);
+                            String age=userInfo.child("age").getValue(String.class);
+                            String imageUri=userInfo.child("image").getValue(String.class);
+                            Picasso.with(LoginActivity.this).load(imageUri).into(imageView);
+                            Glide.with(LoginActivity.this).load(imageUri).into(imageView);
+                        }
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this, "No User Found In the database", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "Invalid Server reference", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(LoginActivity.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    public void queryWithCondition(String email){
+        Query userData = databaseReference.orderByChild("email").equalTo(email);
+        userData.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String userName=snapshot.child("fullname").getValue(String.class);
+                String age=snapshot.child("age").getValue(String.class);
+                String imageUri=snapshot.child("image").getValue(String.class);
+                Picasso.with(LoginActivity.this).load(imageUri).into(imageView);
+                Glide.with(LoginActivity.this).load(imageUri).into(imageView);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 }
