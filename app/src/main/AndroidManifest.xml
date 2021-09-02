@@ -13,13 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ResourcesApp">
         <activity android:name=".Activity.MediaServiceActivity"></activity>
-        <activity android:name=".SampleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".LoginActivity" />
