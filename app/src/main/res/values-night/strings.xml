@@ -3,4 +3,8 @@
     <string name="msg_variable">welcome_msg</string>
     <string name="user_name">username</string>
     <string name="passed_name">Jimmy Trevor</string>
+
+    <string name="heading">Services In Android</string>
+    <string name="startButtonText">Start the Service</string>
+    <string name="stopButtonText">Stop the Service</string>
 </resources>

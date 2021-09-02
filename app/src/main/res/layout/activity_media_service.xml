@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MediaServiceActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="30dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:text="Start Playing"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:text="Stop Playing"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
